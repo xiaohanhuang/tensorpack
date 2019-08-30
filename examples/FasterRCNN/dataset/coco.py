@@ -232,8 +232,9 @@ def register_coco(basedir):
         "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball", "kite", "baseball bat", "baseball glove", "skateboard", "surfboard", "tennis racket", "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair", "couch", "potted plant", "bed", "dining table", "toilet", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone", "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier", "toothbrush"]  # noqa
     class_names = ["BG"] + class_names
 
+    # for split in ["train2017", "val2017"]:
     for split in ["train2017", "val2017", "train2014", "val2014",
-                  "valminusminival2014", "minival2014", "val2017_100"]:
+               "valminusminival2014", "minival2014", "val2017_100"]:
         name = "coco_" + split
         DatasetRegistry.register(name, lambda x=split: COCODetection(basedir, x))
         DatasetRegistry.register_metadata(name, 'class_names', class_names)
